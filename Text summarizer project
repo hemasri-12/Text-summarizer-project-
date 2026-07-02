@@ -1,0 +1,9 @@
+from sumy.parsers.plaintext import PlaintextParser
+from sumy.nlp.tokenizers import Tokenizer
+from sumy.summarizers.lsa import LsaSummarizer
+text = input("Enter the text: ")
+parser = PlaintextParser.from_string(text, Tokenizer("english"))
+summarizer = LsaSummarizer()
+print("\nSummary:\n")
+for sentence in summarizer(parser.document, 3):
+    print(sentence)
